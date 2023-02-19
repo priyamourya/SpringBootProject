@@ -30,4 +30,19 @@ public class courseServiceImpl implements CourseService {
         }
         return sCourse;
     }
+    @Override
+    public Course addCourse(Course course) {
+        list.add(course);
+        return course;
+    }
+    @Override
+    public Course updateCourse(Course course) {
+        for(Course courseList : list){
+            if(courseList.getId()==course.getId()){
+                courseList.setTitle(course.getTitle());
+                courseList.setDescription(course.getDescription());
+            }
+        }
+        return course;
+    }
 }
